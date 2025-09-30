@@ -1,0 +1,330 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zen</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- link the style file to this html file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- <style>
+    :root{
+      --bg:#071017;
+      --panel:#0f1720;
+      --muted:#9aa5b1;
+      --accent:#8be9fd;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max-width:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background:var(--bg);
+      color:#e6f0f2;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      line-height:1.4;
+    }
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:48px 24px}
+
+    /* NAV */
+    header{position:fixed;left:0;right:0;top:18px;z-index:40;pointer-events:none}
+    .nav-inner{pointer-events:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:46px;height:46px;display:grid;place-items:center}
+    .logo svg{display:block;width:36px;height:36px}
+    nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{font-weight:500;opacity:0.85;padding:6px 10px;border-radius:8px}
+
+    /* HERO */
+    .hero{min-height:100vh;display:grid;place-items:center}
+    .hero-card{width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:20px;padding:64px;backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(3,6,10,0.6)}
+    .name{font-weight:800;font-size:clamp(36px,7vw,68px);letter-spacing:-1px;margin:0}
+    .byline{margin-top:10px;color:var(--muted);font-weight:400;font-size:18px}
+    .cta-row{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+
+    /* Sections */
+    section{padding:90px 0}
+    h2.section-title{font-size:20px;margin:0 0 18px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-height:120px}
+    .card h3{margin:0 0 8px 0}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Footer */
+    footer{text-align:center;padding:36px 0;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero-card{padding:40px}
+    }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+      header{top:12px}
+      .hero-card{padding:28px}
+    }
+
+    /* Utility: hide until animated */
+    .pre-animate{opacity:0;transform:translateY(12px)}
+
+    /* small accent underline used on hero */
+    .accent-line{height:4px;width:84px;border-radius:8px;background:linear-gradient(90deg,var(--accent), rgba(139,233,253,0.2));margin-top:18px}
+  </style> -->
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <!-- Simple SVG monogram — will be animated with anime.js -->
+          <svg viewBox="0 0 100 100">
+            <path id="logo-path" d="M20 70 L50 30 L80 70" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div style="font-weight:700">Zen</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-card">
+          <div id="intro" class="pre-animate">
+            <h1 class="name" aria-label="Zen Kushwaha"><!-- letters filled by JS -->
+              <span id="name-letters"></span>
+            </h1>
+            <p class="byline pre-animate" id="tagline">Full Stack Developer • UX/UI Designer • Creator</p>
+            <div class="accent-line pre-animate"></div>
+            <div class="cta-row pre-animate">
+              <button class="btn" id="hire-btn">Hire / Collaborate</button>
+              <a class="btn" href="#projects">View projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <h2 class="section-title pre-animate">About</h2>
+        <div class="card pre-animate">
+          <h3>Hello — I build thoughtful web experiences</h3>
+          <p>I focus on small, fast, and delightful interfaces. My recent projects include an AI therapist, a local voice assistant, and performance-first websites.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <h2 class="section-title pre-animate">Projects</h2>
+        <div class="grid" id="project-grid">
+          <div class="card project pre-animate">
+            <h3>Arenoi — AI Therapist</h3>
+            <p>Voice-enabled AI companion for Gen Z, built with LLMs and therapeutic frameworks.</p>
+          </div>
+          <div class="card project pre-animate">
+            <h3>Zen — Local Voice Assistant</h3>
+            <p>A lightweight wake-word assistant with custom GUI and audio pipelines.</p>
+          </div>
+          <div class="card project pre-animate">
+            <h3>Ruhaniyat — Music Brand</h3>
+            <p>Portfolio and musical identity site for original and cover releases.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <h2 class="section-title pre-animate">Contact</h2>
+        <div class="card pre-animate">
+          <h3>Let's build something</h3>
+          <p>Reach me at <a href="mailto:Zen@arenoi.com">arnabh@arenoi.com</a> or connect on <a href="https://github.com/ZenSensi">Github</a> / <a href="https://www.linkedin.com/in/Zenkushwaha/">LinkedIn</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>&copy; <span id="year"></span> Zen — Built with skills</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="script.js"></script>
+  <!-- <script>
+    // BASIC DATA
+    const NAME = 'Arnabh Kushwaha';
+    const nameContainer = document.getElementById('name-letters');
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    // SPLIT NAME INTO LETTERS
+    function prepareNameLetters(text){
+      // wrap letters in <span> for per-letter animation
+      return text.split('').map(ch => {
+        if(ch === ' ') return '<span class="letter" style="margin:0 6px">&nbsp;</span>'
+        return `<span class="letter">${ch}</span>`
+      }).join('')
+    }
+    nameContainer.innerHTML = prepareNameLetters(NAME);
+
+    // Small helper to animate elements with anime.js
+    function animateIntro(){
+      // animate SVG logo stroke draw
+      const logoPath = document.querySelector('#logo-path');
+      const pathLength = logoPath.getTotalLength();
+      logoPath.setAttribute('stroke-dasharray', pathLength);
+      logoPath.setAttribute('stroke-dashoffset', pathLength);
+
+      anime.timeline({
+        easing: 'easeOutExpo'
+      })
+      .add({
+        targets: '#logo-path',
+        strokeDashoffset: [pathLength,0],
+        duration: 900,
+        delay: 120
+      })
+      .add({
+        targets: '.letter',
+        translateY: [40,0],
+        opacity: [0,1],
+        rotateX: [-20,0],
+        duration: 900,
+        delay: anime.stagger(40)
+      }, '-=450')
+      .add({
+        targets: '#tagline',
+        translateY: [20,0],
+        opacity: [0,1],
+        duration: 700
+      }, '-=450')
+      .add({
+        targets: '.accent-line',
+        scaleX: [0,1],
+        opacity: [0.2,1],
+        duration: 600
+      }, '-=400')
+      .add({
+        targets: '.cta-row .btn',
+        translateY: [20,0],
+        opacity: [0,1],
+        duration: 600,
+        delay: anime.stagger(120)
+      }, '-=400')
+    }
+
+    // Start intro once DOM is ready
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // remove pre-animate class progressively
+      document.querySelectorAll('.pre-animate').forEach(el=>{
+        el.style.opacity = '0';
+      })
+      animateIntro();
+
+      // floating subtle loop on logo after drawing
+      setTimeout(()=>{
+        anime({
+          targets: '.logo svg',
+          translateY: [0,6,0],
+          duration: 3000,
+          loop: true,
+          easing: 'easeInOutSine'
+        })
+      },1200)
+    })
+
+    // INTERSECTION OBSERVER for section reveals
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target;
+          el.classList.remove('pre-animate')
+          anime({
+            targets: el,
+            translateY: [18,0],
+            opacity: [0,1],
+            duration: 800,
+            easing: 'easeOutCubic'
+          })
+          observer.unobserve(el)
+        }
+      })
+    },{threshold:0.12})
+
+    // observe a bunch of elements
+    document.querySelectorAll('.pre-animate').forEach(el => observer.observe(el))
+
+    // PROJECT CARD HOVER micro-interactions
+    document.querySelectorAll('.project').forEach(card =>{
+      card.addEventListener('mouseenter', ()=>{
+        anime.remove(card)
+        anime({targets: card, scale:1.02, translateY:-6, duration:350, easing:'easeOutCubic'})
+      })
+      card.addEventListener('mouseleave', ()=>{
+        anime.remove(card)
+        anime({targets: card, scale:1, translateY:0, duration:350, easing:'easeOutCubic'})
+      })
+    })
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const tgt = document.querySelector(a.getAttribute('href'));
+        if(!tgt) return;
+        tgt.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+
+    // Small CTA click animation
+    document.getElementById('hire-btn').addEventListener('click', ()=>{
+      anime.timeline({})
+        .add({
+          targets:'#hire-btn',
+          scale:[1,0.96,1],
+          duration:450,
+          easing:'easeOutQuad'
+        })
+        .add({
+          targets:'#hire-btn',
+          background: ['rgba(255,255,255,0.03)','linear-gradient(90deg,var(--accent), rgba(139,233,253,0.15))'],
+          duration:400,
+          easing:'linear'
+        },'-=350')
+      // In real usage you might open a modal or mailto here
+      window.location.href = 'mailto:you@example.com?subject=Hi%20Zen%20—%20Let%27s%20build'
+    })
+
+    // Accessibility: reduce motion respect (prefers-reduced-motion)
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if(mq.matches){
+      // disable looping and shorten animations
+      anime.running.forEach(a=>a.pause && a.pause())
+    }
+  </script> -->
+</body>
+</html>
